@@ -5,12 +5,11 @@
         <meta charset="UTF-8">
         <title>회원가입</title>
         <link rel="stylesheet" href="{% static 'css/new_main.css'%}">
-
     </head>
     <body>
         <!-- header -->
         <div id="header">
-            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
+            <a href="" target="_blank" title="MainPage"><img src="{% static 'images/Main_Cherry.jpg' %}" width="150"></a>
         </div>
 
 
@@ -27,7 +26,6 @@
                     </h3>
                     <span class="box int_id">
                         <input type="text" id="id" class="int" maxlength="20">
-                        <span class="step_url">@naver.com</span>
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -36,9 +34,9 @@
                 <div>
                     <h3 class="join_title"><label for="pswd1">비밀번호</label></h3>
                     <span class="box int_pass">
-                        <input type="text" id="pswd1" class="int" maxlength="20">
+                        <input type="password" id="pswd1" class="int" maxlength="20">
                         <span id="alertTxt">사용불가</span>
-                        <img src="m_icon_pass.png" id="pswd1_img1" class="pswdImg">
+                        <img src="{% static 'images/m_icon_pass.png' %}" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -47,8 +45,8 @@
                 <div>
                     <h3 class="join_title"><label for="pswd2">비밀번호 재확인</label></h3>
                     <span class="box int_pass_check">
-                        <input type="text" id="pswd2" class="int" maxlength="20">
-                        <img src="m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
+                        <input type="password" id="pswd2" class="int" maxlength="20">
+                        <img src="{% static 'images/m_icon_check_disable.png' %}" id="pswd2_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
                 </div>
@@ -146,6 +144,6 @@
             <!-- content-->
         </div>
         <!-- wrapper -->
-    <script src="main.js"></script>
+    <script src = "{% static 'js/main.js'%}"></script>
     </body>
 </html>
