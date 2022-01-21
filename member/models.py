@@ -5,7 +5,7 @@ database = ('chemistrry', 'cherry', 'localhost:1521/xe')
 
 
 # Create your models here.
-def member_insert(mem_info):
+def memberInsert(mem_info):
     conn = ora.connect('chemistrry', 'cherry', 'localhost:1521/xe')  # 오라클에 접속
     cursor = conn.cursor()  # preparedStatement
     # addr_list로 넘어온 값들을 순서대로 :1,:2... 자리에 바인딩한다.
