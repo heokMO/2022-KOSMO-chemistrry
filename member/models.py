@@ -9,7 +9,7 @@ def member_insert(mem_info):
     conn = ora.connect('chemistrry', 'cherry', 'localhost:1521/xe')  # 오라클에 접속
     cursor = conn.cursor()  # preparedStatement
     # addr_list로 넘어온 값들을 순서대로 :1,:2... 자리에 바인딩한다.
-    sql = "insert into mem (serialnum, mem_id, mem_pwd, nickname) values (member_seq.nextVal, :1, :2, :3)"
+    sql = "insert into mem (serialnum, mem_id, mem_pwd, nickname) values ({}, :1, :2, :3)".format(1)
     cursor.execute(sql, mem_info)
     cursor.close()
     conn.commit()

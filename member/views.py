@@ -13,4 +13,4 @@ def memberInsert(request):
     mem_info = (request.POST['id'], request.POST['pwd'], request.POST['nickname'])
     member_insert(mem_info)
 
-    return render(request,"member/success.html",{'name':request.POST['name']})
+    return render(request,"signup/success.html",{'name':request.POST['name']})

@@ -20,6 +20,6 @@ import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mypage.urls')),
-    path('member/', include('member.urls')),
+    path('', include('home.urls')),
+    path('signup/', include('signup.urls')),
 ]
