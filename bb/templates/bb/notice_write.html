@@ -1,0 +1,52 @@
+{% include "header.html" %}
+<div id="contents">
+    <h2>게시글 등록 </h2>
+    <form method="post" name="form1" id="form1" enctype="multipart/form-data">
+
+      {% csrf_token %}
+<fieldset>
+<legend>파일 업로드 예제</legend>
+    <select>
+        <option value="None">말머리선택</option>
+        <option value="buy">팝니다</option>
+        <option value="sell">삽니다</option>
+    </select>
+<p>
+<label for="title">
+        제목 :
+    </label>
+    <input type="text" name="title" id="title" >
+</p>
+    작성내용 :
+<p>
+
+<label for="content" >
+
+    </label>
+    <textarea name="content" id="content" cols="30" rows="10" placeholder="글 쓰기"></textarea>
+</p>
+<p><input type="button" id="wrtBtn" value="등록">&nbsp;
+<input type="button" value="목록" id="listBtn">
+</p>
+</fieldset>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E"></script>
+<script>
+    $(function(){
+        $('#wrtBtn').click(function(){
+            document.form1.action='product_insert'
+            document.form1.submit()
+
+        });
+            $('#listBtn').click(function(){
+            document.form1.action='notice_list'
+            document.form1.submit()
+        });
+    });
+
+</script>
+    </form>
+</div>
+<div id="footer"></div>
+</body>
+</html>

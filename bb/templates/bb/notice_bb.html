@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>공지사항 게시판 화면</title>
+</head>
+<body>
+<div id="content">
+    <h2 class="text-center">주소록 Total : {{address_count}} </h2>
+    <div class="row1">
+        <form method="post" action="notice_write">
+            {% csrf_token %}
+            <table class="table table-striped table-bordered">
+                <thead class="table-warning">
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">전화번호</th>
+                    <th scope="col">이메일</th>
+                    <th scope="col">주소</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for e in addr_list %}
+                <tr>
+                    <td>{{e.idx}}</td>
+                    <td><a href="detail?idx={{e.idx}}">{{e.name}}</a></td>
+                    <td>{{e.tel}}</td>
+                    <td>{{e.email}}</td>
+                    <td>{{e.address}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+
+                </tr>
+                <tr>
+                    <th colspan="5" class="text-center">
+
+                        <input type="submit" value="글쓰기">
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="5" class="text-center">
+
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>
