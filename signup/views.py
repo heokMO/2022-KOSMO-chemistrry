@@ -11,4 +11,4 @@ def mainpage(request):
 
 
 def memberjoin(request):
-    return render(request, "signup/memberjoin.html")
+    return render(request, "signup/signup.html")
