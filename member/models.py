@@ -15,7 +15,6 @@ def member_insert(mem_info):
     conn.commit()
     conn.close()
 
-
 def idcheck(idx):
     conn = ora.connect(database)
     cursor = conn.cursor()
