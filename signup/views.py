@@ -6,9 +6,7 @@ def login(request):
     return render(request, "signup/login.html")
 
 
-def mainpage(request):
-    return render(request, "signup/mainpage.html")
-
-
-def memberjoin(request):
+def signup(request):
     return render(request, "signup/signup.html")
+
+

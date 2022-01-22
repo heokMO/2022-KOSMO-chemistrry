@@ -22,5 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('signup/', include('signup.urls')),
-    path('used/',include('used.urls')),
+    path('member/', include('member.urls')),
+    path('mypage/',include('my_page.urls')),
+    path('help/', include('help.urls')),
+    path('notice/', include('notice.urls')),
+    path('delivery/', include('delivery.urls')),
+    path('market/',include('market.urls')),
 ]

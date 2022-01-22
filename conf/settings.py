@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key market in production secret!
 SECRET_KEY = 'django-insecure-l_2912qhj$$c(rd!6+xytb&c-$#tuoaxo@mrjf!pb$+y#gr3xn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'signup',
-    'used',
+    'market',
+    'member',
+    'my_page',
+    'help',
+    'notice',
+    'delivery',
 ]
 
 MIDDLEWARE = [
