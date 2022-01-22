@@ -1,3 +1,3 @@
-from django.db import models
+import cx_Oracle as ora
 
-# Create your models here.
+database = ('chemistrry', '1234', 'localhost:1521/xe')
