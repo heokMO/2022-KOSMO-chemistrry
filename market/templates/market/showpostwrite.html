@@ -1,10 +1,10 @@
 {% include 'navi.html'%}
 <div id="contents">
     <h2>체리 마켓</h2>
-    <form method="post" name="form1" id="form1" action="meminsert" enctype="multipart/form-data">
+    <form method="post" name="form1" id="form1" action="postinsert" enctype="multipart/form-data">
       {% csrf_token %}
 <fieldset>
-<legend>체리 마켓 글쓰</legend>
+<legend>체리 마켓 글쓰기</legend>
     <select name="malmuri">
         <option value="None">말머리선택</option>
         <option value="0">팝니다</option>

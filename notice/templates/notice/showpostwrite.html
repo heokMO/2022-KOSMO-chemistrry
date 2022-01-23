@@ -1,7 +1,7 @@
 {% include 'navi.html'%}
 <div id="contents">
     <h1>공지사항 글쓰기 창입니다.</h1>
-    <form method="post" name="form1" id="form1" action="meminsert" enctype="multipart/form-data">
+    <form method="post" name="form1" id="form1" action="postinsert" enctype="multipart/form-data">
       {% csrf_token %}
 <fieldset>
 <legend>공지사항</legend>
@@ -32,10 +32,14 @@
 </p>
 </fieldset>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E"></script>
-<script>
-
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#listBtn').click(function(){
+                location = '/notice/showpostlist';
+            });
+        });
+    </script>
 </head>
 </div>
 <div id="footer"></div>

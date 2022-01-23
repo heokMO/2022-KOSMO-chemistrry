@@ -3,15 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from market.models import postinsert
 
-
-def bb_write(request):
-    return render(request,"market/write.html")
-
-def used(request):
-    return render(request,"market/market.html")
-
 UPLOAD_DIR = '/market/static/images/'
-def meminsert(request):
+def postinsert(request):
     if 'file1' in request.FILES: #메모리에 file1이 있다면, 업로드가 되었다면
         file = request.FILES['file1']
         file_name = file.name
@@ -31,16 +24,17 @@ def meminsert(request):
 
     postinsert(mem_info, post_contents, post_detail)
     return render(request,"market/success.html")
+"""
 
 def marketlist(request):
     bb_type = 3
     univ = '서울대학교'
     list = list(bb_type,univ)
-    return render(request, "market/list.html",{'list':list})
+    return render(request, "market/showpostlist.html",{'list':list})
+"""
 
+def show_post_list(request):
+    return render(request,'market/showpostlist.html')
 
-def list(request):
-    return render(request,'market/list.html')
-
-def write(request):
-    return render(request,'market/write.html')
+def show_post_write(request):
+    return render(request,'market/showpostwrite.html')
