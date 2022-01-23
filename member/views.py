@@ -14,3 +14,10 @@ def memberInsert(request):
     member_insert(mem_info)
 
     return render(request,"signup/success.html",{'name':request.POST['name']})
+
+def meminsert(request):
+    addr = (request.POST['id'], request.POST['pwd'],
+            request.POST['name'], request.POST['email'],
+            request.POST['tel'], request.POST['addr'])
+    memberinsert(addr)
+    return render(request,"member/success.html",{'name':request.POST['name'],'tel':request.POST['tel'],'pwd':request.POST['pwd']})

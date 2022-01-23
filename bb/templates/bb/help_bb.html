@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>도와주세요게시판</title>
     <link type="text/css" href="/static/css/container.article.css" rel="stylesheet">
-	<style>
+   <style>
 ul{
    list-style:none;
    }
@@ -12,37 +12,30 @@ ul{
 </head>
 <body style>
 <div id="container" class="article">
-	<div class="wrap articles">
+   <div class="wrap articles">
+       {{tu}}
+           {% for i in tu %}
+                {% for h in i %}
 <article>
-	<a class="article" href="/377392/v/227189837">
-	<h2 class="medium">대면일라나 비대면일라나</h2>
-	<p class="small">궁금하규만</p>
-	<time class="small">방금</time>
-	<h3 class="small">익명</h3>
-		<ul class="status">
+   <a class="article" href="/377392/v/227189837">
+   <h2 class="medium">{{h}}</h2>
+   <p class="small">{{i.title}}</p>
+   <time class="small">방금</time>
+   <h3 class="small">익명</h3>
+      <ul class="status">
 
-			<li title="공감" class="vote">0</li>
-			<li title="댓글" class="comment">0</li>
-		</ul>
-	<hr>
-	<input type="hidden" name="227189837_comment_anonym" value="0">
-	</a>
+         <li title="공감" class="vote">0</li>
+         <li title="댓글" class="comment">0</li>
+      </ul>
+   <hr>
+   <input type="hidden" name="227189837_comment_anonym" value="0">
+   </a>
+
 </article>
-<article>
-	<a class="article" href="/377392/v/227189837">
-	<h2 class="medium">대면일라나 비대면일라나</h2>
-	<p class="small">궁금하규만</p>
-	<time class="small">방금</time>
-	<h3 class="small">익명</h3>
-		<ul class="status">
-			<li title="공감" class="vote">0</li>
-			<li title="댓글" class="comment">0</li>
-		</ul>
-	<hr>
-	<input type="hidden" name="227189837_comment_anonym" value="0">
-	</a>
-</article>
-		</div>
+       {% endfor %}
+      {% endfor %}
+
+      </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
@@ -50,3 +43,10 @@ ul{
 </script>
 </body>
 </html>
+
+        <tr>
+            <th scope="row"></th>
+            <td><a href="detail?idx={{i.idx}}">{{i.name}}</a></td><td>{{i.tel}}</td>
+            <td>{{i.email}}</td><td>{{i.address}}</td>
+        </tr> p.post_seq, p.title, pc.post_content, pc.post_write_time, mem.nickname, p.leg_like, p.reply_cnt
+

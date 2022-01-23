@@ -6,15 +6,17 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.decorators.csrf import csrf_protect
 
+from bb.models import examSelect
+
 
 def help_bb(request):
-    return render(request,"bb/help_bb.html")
-
+    tu = examSelect()
+    return render(request, "bb/help_bb.html", {'tu': tu})
 def help_write(request):
     return render(request,"bb/help_write.html")
 
 def notice_bb(request):
-    return render(request,"bb/notice_bb.html")
+    return render(request, "bb/notice_bb.html") # 이게 forword라 딕셔너리가된대
 
 def notice_write(request):
     return render(request,"bb/notice_write.html")
@@ -37,5 +39,11 @@ def help_list(request):
 #     addr_list = paginator.get_page(page)
     return render(request, "bb/help_bb.html")  #이게 forword라 딕셔너리가된대
 
-def notice_list(request):
-    return render(request, "bb/notice_bb.html")  # 이게 forword라 딕셔너리가된대
+
+# ======================================================
+# def meminsert(request):
+#     addr = (request.POST['id'], request.POST['pwd'],
+#             request.POST['name'], request.POST['email'],
+#             request.POST['tel'], request.POST['addr'])
+#     memberinsert(addr)
+#     return render(request,"member/success.html",{'name':request.POST['name'],'tel':request.POST['tel'],'pwd':request.POST['pwd']})
