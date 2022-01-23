@@ -1,12 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-        {% include 'navi.html'%}
-    <h1>체리는 배달중 글쓰기 창입니다.</h1>
-</head>
-<body>
+{% include 'navi.html'%}
+<div id="contents">
+    <h2>체리는 배달중</h2>
+    <form method="post" name="form1" id="form1" action="meminsert" enctype="multipart/form-data">
+      {% csrf_token %}
+        <fieldset>
+        <legend>배달 파티원 구하기</legend>
 
+        <p>
+        <label for="title">
+                제목 :
+            </label>
+            <input type="text" name="title" id="title" >
+        </p>
+        <p>
+        <label for="store_name">
+                가게 이름 :
+            </label>
+            <input type="text" name="store_name" id="store_name" placeholder="주문할 가게를 입력해주세요!">
+        </p>
+        <p>
+        <label for="tol_num">
+                총 참여 인원 :
+            </label>
+            <input type="number" name="tol_num" id="tol_num" min="2" max="10" step="1"  style="width:50px;">
+        </p>
+        <p>
+        <label for="time">
+               참여 가능 시간 :
+            </label>
+            ~<input type="time" name="time" id="time">까
+        </p>
+        <p>
+        <p>작성내용 :</p>
+        <label for="content">
+            </label>
+            <textarea name="content" id="content" cols="30" rows="10" placeholder=""></textarea>
+        </p>
+        <p>
+            <label for="file1">
+                배달 관련 이미지 :
+           </label>
+            <input type="file" name="file1" id="file1">
+        </p>
+        <p>
+            <input type="hidden" name="bb_type" id="bb_type" value=3>
+            <input type="hidden" name="univ" id="univ" value="서울대학교">
+            <input type="hidden" name="writer_seq" id="writer_seq" value=2>
+            <input type="submit" id="wrtBtn" value="등록">
+            <input type="button" value="목록" id="listBtn">
+        </p>
+        </fieldset>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E"></script>
+<script>
+
+</script>
+    </form>
+</div>
+<div id="footer"></div>
 </body>
 </html>
