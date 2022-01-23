@@ -1,7 +1,7 @@
 import cx_Oracle as ora
 
 # database = ('chemistrry', 'cherry', 'localhost:1521/xe')
-database = ('chemistrry/cherry@192.168.0.9/xe')
+database = ('chemistrry/cherry@192.168.0.22/xe')
 
 def examSelect():
     conn  = ora.connect(database)
@@ -59,4 +59,5 @@ CREATE TABLE mem(                       --회원
 #     cursor.close()
 #     conn.commit()
 #     conn.close()
-
+print("--------------------------------------")
+examSelect()
