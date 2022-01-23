@@ -2,9 +2,10 @@ from django.urls import path
 
 from market import views
 
+app_name = 'market'
+
 urlpatterns = [
-    path('bb_write',views.bb_write),
-    path('meminsert',views.meminsert),
-    path('list', views.list, name='list'),
-    path('write', views.write, name='write'),
+    path('postinsert',views.postinsert),
+    path('showpostlist', views.show_post_list, name='showpostlist'),
+    path('showpostwrite', views.show_post_write, name='showpostwrite'),
 ]

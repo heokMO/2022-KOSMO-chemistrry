@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def list(request):
-    return render(request,'help/list.html')
+def show_post_list(request):
+    return render(request,'help/showpostlist.html')
 
-def write(request):
-    return render(request,'help/write.html')
+def show_post_write(request):
+    return render(request,'help/showpostwrite.html')

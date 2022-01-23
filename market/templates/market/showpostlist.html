@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>체리야 도와줘 게시글 목록</title>
+    <title>체리마켓 게시글 목록</title>
     {% include 'navi.html'%}
-    <h1>체리는 배달중 게시글 목록</h1>
+    <h1>체리마켓 게시글 목록</h1>
 
     <input type="button" value="글쓰기" id="wrtBtn" name="wrtBtn">
 </head>
@@ -13,7 +13,7 @@
 <script>
     $(function(){
         $('#wrtBtn').click(function(){
-            location = '/delivery/write';
+            location = '/market/showpostwrite';
         });
     });
 </script>
