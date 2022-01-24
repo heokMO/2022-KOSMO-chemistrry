@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <title>체리야 도와줘</title>
     {% include 'navi.html'%}
@@ -17,7 +18,7 @@ ul{
    <div class="wrap articles">
  {% for e in post_list %}
 <article>
-   <a class="article" href="/help/showpostdetail?post_seq={{e.0}}">
+   <a class="article" href="/help/showpostdetail?post_seq={{e.0}}" style="text-decoration : none;">
        <h2 class="medium">{{e.1}}</h2>
        <p class="small">{{e.2}}</p>
        <time class="small">{{e.3}}</time>
@@ -31,19 +32,19 @@ ul{
    </a>
 </article>
            {% endfor %}
-
+    <input type="button" name="wrtBtn" id="wrtBtn" value="글쓰기" style="text-align:right">
 
       </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-
+    $(function(){
+        $('#wrtBtn').click(function(){
+            location='/help/showpostwrite'
+        });
+    });
 </script>
 </body>
 </html>
-        <tr>
-            <th scope="row"></th>
-            <td><a href="detail?idx={{i.idx}}">{{i.name}}</a></td><td>{{i.tel}}</td>
-            <td>{{i.email}}</td><td>{{i.address}}</td>
-        </tr>
+
 
