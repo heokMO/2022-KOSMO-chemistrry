@@ -15,21 +15,22 @@ ul{
 <div id="container" class="article">
     <h1>체리야 도와줘</h1>
    <div class="wrap articles">
-
+ {% for e in post_list %}
 <article>
-   <a class="article" href="/help/showpostwrite">
-       <h2 class="medium">제목</h2>
-       <p class="small">내용</p>
-       <time class="small">방금</time>
-       <h3 class="small">익명</h3>
+   <a class="article" href="/help/showpostdetail?post_seq={{e.0}}">
+       <h2 class="medium">{{e.1}}</h2>
+       <p class="small">{{e.2}}</p>
+       <time class="small">{{e.3}}</time>
+       <h3 class="small">{{e.4}}</h3>
           <ul class="status">
-             <li title="공감" class="vote">0</li>
-             <li title="댓글" class="comment">0</li>
+             <li title="좋아요 수" class="vote">{{e.5}}</li>
+             <li title="댓글 수" class="comment">{{e.6}}</li>
           </ul>
        <hr>
        <input type="hidden" name="227189837_comment_anonym" value="0">
    </a>
 </article>
+           {% endfor %}
 
 
       </div>

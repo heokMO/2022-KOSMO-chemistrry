@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'help',
     'notice',
     'delivery',
+    'reply',
 ]
 
 MIDDLEWARE = [

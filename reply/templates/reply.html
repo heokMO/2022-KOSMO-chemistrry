@@ -1,12 +1,14 @@
 <div>
   <table>
-    댓글 {{post_detail.5}}
+    댓글 {{post_detail.5}} 개
                 {% for hang in reply_detail %}
                 <tr>
                     <td>{{hang.0}}</td>
                     <td>{{hang.1}}</td>
                     <td>{{hang.2}}</td>
                     <td>{{hang.3}}</td>
+                    <td><input type="button" name="update" value="수정"></td>
+                    <td><input type="button" name="delete" value="삭제"></td>
                 </tr>
                 {% endfor %}
   </table>

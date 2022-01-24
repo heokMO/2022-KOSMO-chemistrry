@@ -34,12 +34,8 @@ def post_update(request):
         request.POST['writer'],
         request.POST['content']
     ]
-
     return redirect('/notice/showpostdetail?post_seq={}'.format(request.POST['post_seq']))
-
 
 def post_delete(request):
     delete_data = request.GET['post_seq']
     return redirect('/notice/showpostlist')
-
-
