@@ -6,7 +6,7 @@ from django.db import models
 
 
 # Create your models here.
-database = ('chemistrry/cherry@192.168.0.22/xe')
+
 
 #상세보기
 def reply():

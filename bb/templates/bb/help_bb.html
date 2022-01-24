@@ -13,13 +13,11 @@ ul{
 <body style>
 <div id="container" class="article">
    <div class="wrap articles">
-       {{tu}}
-           {% for i in tu %}
-                {% for h in i %}
+
 <article>
    <a class="article" href="/377392/v/227189837">
-   <h2 class="medium">{{h}}</h2>
-   <p class="small">{{i.title}}</p>
+   <h2 class="medium">제목</h2>
+   <p class="small">내용</p>
    <time class="small">방금</time>
    <h3 class="small">익명</h3>
       <ul class="status">
@@ -32,8 +30,7 @@ ul{
    </a>
 
 </article>
-       {% endfor %}
-      {% endfor %}
+
 
       </div>
 </div>
@@ -48,5 +45,5 @@ ul{
             <th scope="row"></th>
             <td><a href="detail?idx={{i.idx}}">{{i.name}}</a></td><td>{{i.tel}}</td>
             <td>{{i.email}}</td><td>{{i.address}}</td>
-        </tr> p.post_seq, p.title, pc.post_content, pc.post_write_time, mem.nickname, p.leg_like, p.reply_cnt
+        </tr>
 

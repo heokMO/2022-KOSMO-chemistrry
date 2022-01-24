@@ -6,12 +6,12 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.views.decorators.csrf import csrf_protect
 
-from bb.models import examSelect
-
+from bb.models import test_insert, test_update, test_list, test_delete, test_detail
 
 def help_bb(request):
-    tu = examSelect()
-    return render(request, "bb/help_bb.html", {'tu': tu})
+    tu = test_list()
+    return render(request, "bb/help_bb.html")
+
 def help_write(request):
     return render(request,"bb/help_write.html")
 
