@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Blog List</title>
+    </head>
+    <body>
+        <h1>배달 파티원 모집</h1>
+        <table>
+            {% for list in postlist %}
+                <!-- 게시글 클릭시 세부페이지로 넘어갑니다-->
+                <ul>
+                    <li><a href="{{list.pk}}/">{{list.post_num}}</a></li>
+                </ul>
+            {% endfor %}
+            <button><a href="new_post/">새로운 파티원 모집</a></button>
+        </table>
+    </body>
+</html>

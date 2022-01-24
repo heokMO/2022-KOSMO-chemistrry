@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Posting!</title>
+    </head>
+    <body>
+        <h1>배달 파티원 모집글</h1>
+        <li>{{list.post_num}}</li>
+        <li>{{list.open_time}}</li>
+        <li>{{list.available}}</li>
+        <li>{{list.curr_num}}</li>
+        <li>{{list.tol_num}}</li>
+        <li>{{list.store_name}}</li>
+        {% if post.mainphoto %}
+            <img src = "{{ post.mainphoto.url }}" alt="" height="600">
+            <br>
+        {% endif %}
+        <a href="/baedal/blog/">목록</a>
+        <a href="/baedal/blog/{{post.pk}}/remove">삭제</a>
+    </body>
+</html>

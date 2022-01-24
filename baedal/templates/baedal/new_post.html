@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배달 파티원 모집 글쓰기</title>
+</head>
+<body>
+    <h1>배달 파티원 모집 글쓰기</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="module aligned ">
+        <div class="form-row field-post_num">
+                <div><label class="required" for="id_post_num">Post num:</label>
+                            <input type="text" name="post_num" class="vTextField" maxlength="50" required="" id="id_post_num">
+                </div>
+        </div>
+            <div class="form-row field-open_time">
+                <div><label class="required" for="id_open_time">Open time:</label>
+                            <input type="datetime-local" name="open_time" required="" id="id_open_time">
+                </div>
+        </div>
+
+        <div class="form-row field-available">
+                <div>
+                  <label class="required" for="id_available">Available:</label>
+                            <input type="text" name="available" class="vTextField" maxlength="1" required="" id="id_available">
+                </div>
+        </div>
+        </div>
+        <div class="form-row field-curr_num">
+                <div>
+                        <label for="id_curr_num">Curr num:</label>
+                            <input type="number" name="curr_num" class="vIntegerField" id="id_curr_num">
+                </div>
+        </div>
+        <div class="form-row field-tol_num">
+                <div>
+                        <label for="id_tol_num">Tol num:</label>
+                            <input type="number" name="tol_num" class="vIntegerField" id="id_tol_num">
+                </div>
+        </div>
+        <div class="form-row field-store_name">
+                <div>
+                        <label class="required" for="id_store_name">Store name:</label>
+                            <textarea name="store_name" cols="40" rows="10" class="vLargeTextField" maxlength="50" required="" id="id_store_name"></textarea>
+                </div>
+        </div>
+        <div class="form-row field-mainphoto">
+                <div>
+                        <label for="id_mainphoto">Mainphoto:</label>
+                            <input type="file" name="mainphoto" accept="image/*" id="id_mainphoto">
+                </div>
+        </div>
+
+        <input type="submit" value="글쓰기">
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Blog List</title>
+    </head>
+    <body>
+        <h1>배달 파티원 모집 게시판</h1>
+        <table>
+        {% for list in postlist %}
+            <ul>
+                <li><a href="{{list.pk}}/">{{list.post_num}}</a></li>
+                <li>{{list.post_num}}</li>
+                <li>{{list.open_time}}</li>
+                <li>{{list.available}}</li>
+                <li>{{list.curr_num}}</li>
+                <li>{{list.tol_num}}</li>
+                <li>{{list.store_name}}</li>
+            </ul>
+        {% endfor %}
+        </table>
+    </body>
+</html>
