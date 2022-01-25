@@ -83,7 +83,7 @@ function checkPw() {
         error[1].style.display = "block";
         
         pwMsg.style.display = "block";
-        pwImg1.src = "../../static/images/m_icon_not_use.png";
+        pwImg1.src /m_icon_not_use.png";
     } else {
         error[1].style.display = "none";
         pwMsg.innerHTML = "안전";
