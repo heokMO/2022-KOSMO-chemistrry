@@ -24,8 +24,6 @@ urlpatterns = [
     path('signup/', include('signup.urls')),
     path('member/', include('member.urls')),
     path('mypage/',include('my_page.urls')),
-    path('help/', include('help.urls')),
     path('notice/', include('notice.urls')),
-    path('delivery/', include('delivery.urls')),
-    path('market/',include('market.urls')),
+    path('help/', include('help.urls')),
 ]

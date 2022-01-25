@@ -39,12 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'signup',
-    'market',
     'member',
     'my_page',
-    'help',
     'notice',
-    'delivery',
+    'help',
     'reply',
 ]
 

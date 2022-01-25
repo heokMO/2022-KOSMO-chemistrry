@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def show_post_list(request):
-    delivery_list = [(7, '푸라닭 치킨', '오늘 7시에 푸라닭 시키실 분!!', '22/01/23 19:00:00', 0, 1, 'chichi', '22/01/23 19:00:00', 0), ]
+    delivery_list = [(7, '푸라닭 치킨', '오늘 7시에 푸라닭 시키실 분!!', '22/01/23 19:00:00', 0, 1, 'chichi', '22/01/23 19:00:00', 0),
+                     (8, 'BHC', '8시에 뿌링클 모여!', '22/01/23 20:00:00', 1, 1, 'dada', '22/01/23 19:00:00', 0), ]
     return render(request,'delivery/showpostlist.html',{'delivery_list':delivery_list})
 
 def show_post_write(request):
