@@ -38,15 +38,12 @@
                 </p>
                 <p>
                     <div style="text-align:right">
-                        좋아요 수 :<input type="text" value="{{post_detail.4}}" id="likeCnt" style="text-align:right;width:30px;" >
+                        조회수 :<input type="text" value="{{post_detail.4}}" id="likeCnt" style="text-align:right;width:30px;" >
                     </div>
                 </p>
                 {% include 'reply.html'%}
                 <div style="text-align:right">
                     <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
-                    <input type="hidden" name="bb_type" id="bb_type" value=0>
-                    <input type="hidden" name="univ" id="univ" value="서울대학교">
-                    <input type="hidden" name="writer_seq" id="writer_seq" value=6>
                     <input type="button" value="목록" id="listBtn">
                     <input type="button" value="수정" id="updateBtn">
                     <input type="button" value="삭제" id="deleteBtn">

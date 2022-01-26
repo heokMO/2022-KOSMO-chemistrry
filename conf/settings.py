@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'notice',
     'help',
     'reply',
+    'post',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'conf.urls'
+
+database = 'chemistrry/cherry@192.168.56.1/xe'
 
 TEMPLATES = [
     {
