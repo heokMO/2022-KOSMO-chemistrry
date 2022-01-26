@@ -2,33 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chemistrry</title>
+    <h1> 메인 </h1>
 
+    {% include 'navi.html'%}
 </head>
 <body>
 
-    <h1 style="text-align:right">로그인</h1>
-
-    <form method="post"  action="mainpage" style="text-align:right">
-        {% csrf_token %}
-        <div >ID</div>
-        <div>
-            <input type="text" name="id" id="id" placeholder="ID"> <!--해당 Text상자에 기본으로 띄워놓을 문구를 placeholder라고 한다. -->
-
-        </div>
-
-        <div >password</div>
-        <div >
-            <input type="password" name="pwd" id="pwd" placeholder="비밀번호">
-        </div>
-
-        <div >
-            <input type="submit" value="로그인"><p></p>
-            <a href="">아이디/비밀번호찾기</a><p></p>
-            <a href="{% url 'signup:signup'%}">가입하기</a>
-
-        </div>
-    </form>
-<div id="footer"></div>
 </body>
 </html>
