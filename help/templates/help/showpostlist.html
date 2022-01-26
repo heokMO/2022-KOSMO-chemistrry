@@ -38,7 +38,7 @@
         <script>
             $(function(){
                 $('#wrtBtn').click(function(){
-                    location='/help/showpostwrite'
+                    location='{% url 'help:showpostwrite' %}'
                 });
             });
         </script>

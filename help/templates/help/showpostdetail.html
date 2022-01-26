@@ -65,7 +65,6 @@
                 });
 
                $('#deleteBtn').click(function(){
-                    location = '/notice/postdelete?post_seq='+$('#post_seq').val();
                     location = "{% url 'help:postdelete' post_seq=post_seq%}";
                 });
             });
