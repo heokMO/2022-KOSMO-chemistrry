@@ -23,5 +23,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('signup/', include('signup.urls')),
     path('member/', include('member.urls')),
-    path('notice/', include('notice.urls'))
+    path('notice/', include('notice.urls')),
+    path('help/', include('help.urls')),
+    path('post/', include('post.urls')),
 ]

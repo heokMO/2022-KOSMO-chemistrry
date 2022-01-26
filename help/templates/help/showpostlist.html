@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chemistrry : help</title>
+        <link type="text/css" href="/static/css/container.article.css" rel="stylesheet">
+       <style>
+        ul {
+           list-style:none;
+        }
+        </style>
+    </head>
+    <body>
+        {% include 'navi.html'%}
+        <div id="container" class="article">
+            <h1>체리야 도와줘</h1>
+            <div class="wrap articles">
+            {% for e in post_list %}
+            <article>
+                <a class="article" href="{% url 'help:showpostdetail' post_seq=e.0 %}" style="text-decoration : none;">
+                   <h2 class="medium">{{e.1}}</h2>
+                   <p class="small">{{e.2}}</p>
+                   <time class="small">{{e.3}}</time>
+                   <h3 class="small">{{e.4}}</h3>
+                    <ul class="status">
+                         <li title="조회수" class="comment">{{e.5}}</li>
+                    </ul>
+                    <hr>
+                    <input type="hidden" name="227189837_comment_anonym" value="0">
+                </a>
+            </article>
+           {% endfor %}
+            <input type="button" name="wrtBtn" id="wrtBtn" value="글쓰기" style="text-align:right">
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $('#wrtBtn').click(function(){
+                    location='{% url 'help:showpostwrite' %}'
+                });
+            });
+        </script>
+    </body>
+</html>
+

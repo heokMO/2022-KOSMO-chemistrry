@@ -25,8 +25,7 @@
                                     <td>제목</td> <!-- 이름을 누르면 이름의 idx를 담아서 detail로 이동-->
                                     <td>작성자</td>
                                     <td>작성시간</td>
-                                    <td>좋아요</td>
-                                    <td>댓글 수</td>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -36,8 +35,6 @@
                                 <td><a href="{% url 'notice:showpostdetail' post_seq=hang.0%}">{{hang.1}}</a></td>
                                 <td>{{hang.2}}</td>
                                 <td>{{hang.3}}</td>
-                                <td>{{hang.4}}</td>
-                                <td>{{hang.5}}</td>
                             </tr>
                             {% endfor %}
                         </tbody>

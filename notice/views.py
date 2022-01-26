@@ -1,10 +1,12 @@
+from typing import Dict, Any
+
 from django.shortcuts import render, redirect
+
+from notice.models import Notice
 
 
 def show_post_list(request):
-    notice_list = [(3, '화장실 좀 깨끗이 쓰세요', 'chichi', '22/01/23 16:57:00', 0, 0),
-                   (4, '건물외벽 결함으로 인한 안전', 'chichi', '22/01/23 16:58:00', 0, 0),
-                   (5, '건askdj', 'chichi', '22/01/23 16:59:00', 0, 0)]
+    notice_list = Notice().post_list()
     return render(request, 'notice/showpostlist.html', {'notice_list': notice_list})
 
 
@@ -13,26 +15,27 @@ def show_post_write(request):
 
 
 def show_post_detail(request, post_seq):
-    post_detail = ('화장실 좀 깨끗이 쓰세요', 'chichi', '휴지가 날라다니네요', 0, '22/01/23 16:57:00', 2)
+    post_info = Notice().post_detail(post_seq)[0]
     reply_detail = [('알겠습니다.', 'dada', '22/01/23 20:21:00,', 0),
                     ('저는 아닙니다.', 'jaejae', '22/01/23 20:22:00,', 0)]
-    return render(request, 'notice/showpostdetail.html', {'post_detail': post_detail, 'post_seq': post_seq, 'reply_detail': reply_detail})
+    return render(request, 'notice/showpostdetail.html', {'post_seq': post_seq, 'post_detail': post_info, 'reply_detail': reply_detail})
 
 
 def show_post_update(request, post_seq):
-    post_detail = ('화장실 좀 깨끗이 쓰세요', 'chichi', '휴지가 날라다니네요')
-    return render(request, 'notice/showpostupdate.html', {'post_detail': post_detail, 'post_seq': post_seq})
+    post_info = Notice().post_update_detail(post_seq)[0]
+    return render(request, 'notice/showpostupdate.html', {'post_detail': post_info, 'post_seq': post_seq})
 
 
-def post_update(request):
-    update_data = [
-        request.POST['post_seq'],
-        request.POST['title'],
-        request.POST['writer'],
-        request.POST['content']
-    ]
-    return redirect('/notice/showpostdetail?post_seq={}'.format(request.POST['post_seq']))
+def post_update(request, post_seq):
+    Notice().post_update(post_seq, request.POST)
+    return redirect('notice:showpostdetail', post_seq=post_seq)
 
 
 def post_delete(request, post_seq):
-    return redirect('/notice/showpostlist')
+    Notice().post_delete(post_seq)
+    return redirect('notice:showpostlist')
+
+
+def post_write(request):
+    Notice().post_insert(request.POST)
+    return redirect('notice:showpostlist')
