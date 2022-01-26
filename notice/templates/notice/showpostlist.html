@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>공지사항 게시글 목록</title>
-    {% include 'navi.html'%}
-    <h1 style="text-align:center">공지사항 게시글 목록</h1>
-<style>
-    table {
-        margin-right:auto;
-        margin-left:auto;
-    }
-</style>
-</head>
-<body>
-<div id="content" style="text-align:center">
-    <div class="row1">
-        <form method="post" action=""> <!-- action을 비워두면 자기 자신한테 간다.-->
-            {% csrf_token %}
-        <table class="table table-striped" style="text-align:center">
-            <thead class="thead-dark">
-            <tr>
-                    <td>글번호</td>
-                    <td>제목</td> <!-- 이름을 누르면 이름의 idx를 담아서 detail로 이동-->
-                    <td>작성자</td>
-                    <td>작성시간</td>
-                    <td>좋아요</td>
-                    <td>댓글 수</td>
-            </tr>
-            </thead>
-            <tbody>
-                {% for hang in notice_list %}
-                <tr>
-                    <td>{{hang.0}}</td>
-                    <td><a href="/notice/showpostdetail?post_seq={{hang.0}}">{{hang.1}}</a></td>
-                    <td>{{hang.2}}</td>
-                    <td>{{hang.3}}</td>
-                    <td>{{hang.4}}</td>
-                    <td>{{hang.5}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="5" class="text-center">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chemistrry: notice</title>
+        {% include 'navi.html'%}
+        <h1 style="text-align:center">공지사항 게시글 목록</h1>
+        <style>
+            table {
+                margin-right:auto;
+                margin-left:auto;
+            }
+        </style>
+    </head>
 
-                    </th>
-                </tr>
-                <tr>
-                    <th colspan="5" class="text-center">
-                        <input type="hidden" name="cur_page" value="{{addr_list.number}}">
-                        <input type="text" name="searchValue" id="searchValue">
-                        <input type="submit" value="search">
-                        <input type="button" style="float:right" value="전체 목록" id="addrListBtn" >
-                    </th>
-                </tr>
-                <tr><th colspan="5" class="text-center">
-                    <input type="button" value="글쓰기" id="wrtBtn" name="wrtBtn">
-                </th></tr>
-            </tfoot>
-        </table>
-        </form>
-    </div>
-</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(function(){
-            $('#wrtBtn').click(function(){
-                location = '/notice/showpostwrite';
+    <body>
+        <div id="content" style="text-align:center">
+            <div class="row1">
+                <form method="post" action=""> <!-- action을 비워두면 자기 자신한테 간다.-->
+                    {% csrf_token %}
+                    <table class="table table-striped" style="text-align:center">
+                        <thead class="thead-dark">
+                            <tr>
+                                    <td>글번호</td>
+                                    <td>제목</td> <!-- 이름을 누르면 이름의 idx를 담아서 detail로 이동-->
+                                    <td>작성자</td>
+                                    <td>작성시간</td>
+                                    <td>좋아요</td>
+                                    <td>댓글 수</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hang in notice_list %}
+                            <tr>
+                                <td>{{hang.0}}</td>
+                                <td><a href="{% url 'notice:showpostdetail' post_seq=hang.0%}">{{hang.1}}</a></td>
+                                <td>{{hang.2}}</td>
+                                <td>{{hang.3}}</td>
+                                <td>{{hang.4}}</td>
+                                <td>{{hang.5}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="5" class="text-center"><!--TODO: notice pagenate--></th>
+                            </tr>
+                            <tr>
+                                <th colspan="5" class="text-center">
+                                    <input type="hidden" name="cur_page" value="{{addr_list.number}}">
+                                    <input type="text" name="searchValue" id="searchValue">
+                                    <input type="submit" value="search">
+                                    <input type="button" style="float:right" value="전체 목록" id="addrListBtn" >
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="5" class="text-center">
+                                    <input type="button" value="글쓰기" id="wrtBtn" name="wrtBtn">
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $('#wrtBtn').click(function(){
+                    location = '/notice/showpostwrite';
+                });
+                $('#addrListBtn').click(function(){
+                    location="/notice/showpostlist"
+                });
             });
-        });
-        $(function(){
-            $('#addrListBtn').click(function(){
-                location="/notice/showpostlist"
-            });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>

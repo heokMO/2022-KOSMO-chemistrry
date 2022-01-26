@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <h1>공지사항 수정 페이지</h1>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chemistrry: notice</title>
+
+    </head>
+    <body>
+        <h1>공지사항 수정 페이지</h1>
         <form method="post" name="form1" id="form1" action="postupdate" enctype="multipart/form-data">
-      {% csrf_token %}
-<fieldset>
-<legend>공지사항</legend>
-<p>
-<label for="title">
-        제목 :
-    </label>
-    <input type="text" name="title" id="title" value="{{post_detail.0}}" >
-</p>
-    <p>
-<label for="writer">
-        작성자 :
-    </label>
-    <input type="text" name="writer" id="writer" value="{{post_detail.1}}" readonly>
-</p>
-    <p>작성내용 :</p>
-<label for="content">
-    </label>
-    <textarea name="content" id="content" cols="30" rows="10" >{{post_detail.2}}</textarea>
-</p>
+                  {% csrf_token %}
+            <fieldset>
+                <legend>공지사항</legend>
+                <p>
+                    <label for="title">
+                        제목 :
+                    </label>
+                    <input type="text" name="title" id="title" value="{{post_detail.0}}" >
+                </p>
+                <p>
+                    <label for="writer">
+                        작성자 :
+                    </label>
+                    <input type="text" name="writer" id="writer" value="{{post_detail.1}}" readonly>
+                </p>
+                <p>작성내용 :</p>
+                    <label for="content">
+                    </label>
+                    <textarea name="content" id="content" cols="30" rows="10" >{{post_detail.2}}</textarea>
+                </p>
 
-<p>
-    <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
-    <input type="button" value="목록" id="listBtn">
-    <input type="submit" id="wrtBn" value="등록">
-    <input type="button" value="삭제" id="deleteBtn">
-</p>
-</fieldset>
-</form>
+                <p>
+                    <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
+                    <input type="button" value="목록" id="listBtn">
+                    <input type="submit" id="wrtBn" value="등록">
+                    <input type="button" value="삭제" id="deleteBtn">
+                </p>
+            </fieldset>
+        </form>
 
-</head>
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(function(){
-            $('#listBtn').click(function(){
-                location = '/notice/showpostlist';
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $('#listBtn').click(function(){
+                    location = '/notice/showpostlist';
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>

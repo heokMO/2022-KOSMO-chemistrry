@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Chemistrry : help</title>
         <style>
             input {
                 border:none;
@@ -42,7 +42,6 @@
                     </div>
                 </p>
                 {% include 'reply.html'%}
-
                 <div style="text-align:right">
                     <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
                     <input type="hidden" name="bb_type" id="bb_type" value=0>
@@ -58,14 +57,16 @@
         <script>
             $(function(){
                 $('#listBtn').click(function(){
-                    location = '/help/showpostlist';
+                    location = '{% url 'help:showpostlist' %}';
                 });
 
                 $('#updateBtn').click(function(){
-                    location = '/help/showpostupdate?post_seq='+$('#post_seq').val();
+                    location = "{% url 'help:showpostupdate' post_seq=post_seq%}";
                 });
+
                $('#deleteBtn').click(function(){
-                    location = '/help/postdelete?post_seq='+$('#post_seq').val();
+                    location = '/notice/postdelete?post_seq='+$('#post_seq').val();
+                    location = "{% url 'help:postdelete' post_seq=post_seq%}";
                 });
             });
         </script>

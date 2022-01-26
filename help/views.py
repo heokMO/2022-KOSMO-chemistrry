@@ -10,29 +10,29 @@ def show_post_list(request):
 def show_post_write(request):
     return render(request,'help/showpostwrite.html')
 
-def show_post_detail(request):
-    post_seq = request.GET['post_seq']
+def show_post_detail(request,post_seq):
+    #post_seq = request.GET['post_seq']
     post_detail = ['신입생입니다','chichi','22/01/24 14:24:00','시간표는 어떻게 짜는건가요?',3,1]
     reply_detail = [('알겠습니다.', 'dada', '22/01/23 20:21:00,', 0),
                     ('저는 아닙니다.', 'jaejae', '22/01/23 20:22:00,', 0)]
     return render(request,'help/showpostdetail.html',{'post_detail':post_detail,'post_seq':post_seq,'reply_detail':reply_detail})
 
-def show_post_update(request):
-    post_seq = request.GET['post_seq']
+def show_post_update(request,post_seq):
+    #post_seq = request.GET['post_seq']
     post_detail = ['신입생입니다', 'chichi', '시간표는 어떻게 짜는건가요?']
     return render(request, 'help/showpostupdate.html', {'post_detail': post_detail, 'post_seq': post_seq})
 
-def post_update(request):
+def post_update(request,post_seq):
     update_data = [
         request.POST['post_seq'],
         request.POST['title'],
         request.POST['writer'],
         request.POST['content']
     ]
-    return redirect('/help/showpostdetail?post_seq={}'.format(request.POST['post_seq']))
+    return redirect('/help/showpostdetail?post_seq={}'.format(post_seq))
 
-def post_delete(request):
-    delete_data = request.GET['post_seq']
+def post_delete(request,post_seq):
+    delete_data = post_seq
     return redirect('/help/showpostlist')
 
 
