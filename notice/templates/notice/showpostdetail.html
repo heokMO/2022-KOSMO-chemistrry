@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chemistrry: notice</title>
+        <style>
+            input {
+                border:none;
+            }
+        </style>
+    </head>
+    <body>
+        {% include 'navi.html'%}
+        <h1>공지사항 상세보기 페이지</h1>
+        <form method="post" name="form" id="form">
+            {% csrf_token %}
+            <fieldset>
+                <div id="title_area">
+                    <legend>공지사항</legend>
+                    <p>
+                        <label for="title">제목 : </label>
+                        <input type="text" name="title" id="title" value="{{post_detail.0}}" readonly>
+                    </p>
+                    <p style="text-align:right">
+                        <label for="writer" ></label>
+                        <input type="text" name="writer" id="writer" value="{{post_detail.1}}" style="width:50px;" readonly>
+                    </p>
+                    <p style="text-align:right">
+                        <label for="time" ></label>
+                        <input type="text" name="time" id="time" value="{{post_detail.4}}" style="text-align:right" readonly>
+                    </p>
+                </div>
+
+                <p>작성내용 :</p>
+                <label for="content"></label>
+                <textarea name="content" id="content" cols="30" rows="10" style="resize:none;width:100%" readonly>{{post_detail.2}}</textarea>
+
+                <div style="text-align:right">
+                    좋아요 수 : <input type="text" value="{{post_detail.3}}" id="likeCnt" style="text-align:right;width:30px;">
+                </div>
+
+                <div style="text-align:right">
+                    <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
+                    <input type="hidden" name="bb_type" id="bb_type" value=0>
+                    <input type="hidden" name="univ" id="univ" value="서울대학교">
+                    <input type="hidden" name="writer_seq" id="writer_seq" value=6>
+                    <input type="button" value="목록" id="listBtn">
+                    <input type="button" value="수정" id="updateBtn">
+                    <input type="button" value="삭제" id="deleteBtn">
+                </div>
+            </fieldset>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $('#listBtn').click(function(){
+                    location = '{% url 'notice:showpostlist' %}';
+                });
+
+                $('#updateBtn').click(function(){
+                    location = "{% url 'notice:showpostupdate' post_seq=post_seq%}";
+                });
+
+               $('#deleteBtn').click(function(){
+                    location = '/notice/postdelete?post_seq='+$('#post_seq').val();
+                    location = "{% url 'notice:postdelete' post_seq=post_seq%}";
+                });
+            });
+        </script>
+    </body>
+</html>
