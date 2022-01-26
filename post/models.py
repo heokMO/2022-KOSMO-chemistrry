@@ -28,7 +28,7 @@ class Post(models.Model):
         """.format(post_seq)
 
         cursor.execute(sql)
-        result = cursor.fetchall()
+        result = cursor.fetchone()
         cursor.close()
         conn.close()
         return result
@@ -45,7 +45,7 @@ class Post(models.Model):
         """.format(post_seq)
 
         cursor.execute(sql)
-        result = cursor.fetchall()
+        result = cursor.fetchone()
         cursor.close()
         conn.close()
         return result

@@ -8,7 +8,7 @@
         {% include 'navi.html'%}
         <div id="contents">
             <h1>체리야 도와줘 글쓰기 창입니다.</h1>
-            <form method="post" action="postinsert" enctype="multipart/form-data">
+            <form method="post" action="postinsert">
                 {% csrf_token %}
                 <fieldset>
                     <legend>체리야 도와줘</legend>
@@ -20,19 +20,10 @@
                         <input type="text" name="title" id="title" >
                     </p>
                     <p>작성내용 :</p>
-                    <label for="content"></label>
-                    <textarea name="content" id="content" cols="30" rows="10" placeholder=""></textarea>
+                    <label for="post_content"></label>
+                    <textarea name="post_content" id="post_content" cols="30" rows="10" placeholder=""></textarea>
 
                     <p>
-                    <label for="file1">
-                            첨부 이미지 :
-                        </label>
-                        <input type="file" name="file1" id="file1">
-                    </p>
-                    <p>
-                        <input type="hidden" name="bb_type" id="bb_type" value=1>
-                        <input type="hidden" name="univ" id="univ" value="서울대학교">
-                        <input type="hidden" name="writer_seq" id="writer_seq" value=6>
                         <input type="submit" id="wrtBtn" value="등록">
                         <input type="button" value="목록" id="listBtn">
                     </p>

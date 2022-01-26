@@ -5,24 +5,29 @@ from django.shortcuts import render, redirect
 from notice.models import Notice
 
 
+def show_post_write(request):
+    return render(request, 'notice/showpostwrite.html')
+
+
+def post_write(request):
+    Notice().post_insert(request.POST)
+    return redirect('notice:showpostlist')
+
+
 def show_post_list(request):
     notice_list = Notice().post_list()
     return render(request, 'notice/showpostlist.html', {'notice_list': notice_list})
 
 
-def show_post_write(request):
-    return render(request, 'notice/showpostwrite.html')
-
-
 def show_post_detail(request, post_seq):
-    post_info = Notice().post_detail(post_seq)[0]
+    post_info = Notice().post_detail(post_seq)
     reply_detail = [('알겠습니다.', 'dada', '22/01/23 20:21:00,', 0),
                     ('저는 아닙니다.', 'jaejae', '22/01/23 20:22:00,', 0)]
     return render(request, 'notice/showpostdetail.html', {'post_seq': post_seq, 'post_detail': post_info, 'reply_detail': reply_detail})
 
 
 def show_post_update(request, post_seq):
-    post_info = Notice().post_update_detail(post_seq)[0]
+    post_info = Notice().post_update_detail(post_seq)
     return render(request, 'notice/showpostupdate.html', {'post_detail': post_info, 'post_seq': post_seq})
 
 
@@ -36,6 +41,4 @@ def post_delete(request, post_seq):
     return redirect('notice:showpostlist')
 
 
-def post_write(request):
-    Notice().post_insert(request.POST)
-    return redirect('notice:showpostlist')
+

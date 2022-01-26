@@ -1,3 +1,25 @@
-from django.db import models
+from post.models import Post
 
-# Create your models here.
+import cx_Oracle as ora
+
+from conf.settings import orcle_connect_config
+
+
+class Help(Post):
+    def post_list(self):
+        conn = ora.connect(orcle_connect_config)
+        cursor = conn.cursor()
+        sql = """
+            select p.post_seq, p.title, p.post_content, p.written_time, m.nickname, p.view_count 
+            from post p, mem m 
+            where m.mem_seq = p.mem_seq 
+            and board_type = '체리야도와줘'
+        """
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return result
+
+    def post_insert(self, info):
+        super().post_insert('체리야도와줘', info)
