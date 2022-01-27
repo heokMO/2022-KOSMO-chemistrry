@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'help',
     'post',
     'reply',
+    'mypage'
 ]
 
 MIDDLEWARE = [

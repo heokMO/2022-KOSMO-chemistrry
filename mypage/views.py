@@ -6,14 +6,14 @@ from mypage.models import show_myinfo, info_modify
 
 def my_info(request):
     mem_seq = 2
-    myinfo = show_myinfo(mem_seq)
-    return render(request, 'mypage/myinfo.html', {'myinfo':myinfo})
+    user_info = show_myinfo(mem_seq)
+    return render(request, 'mypage/myinfo.html', {'myinfo': user_info})
 
 
 def info_update(request):
     mem_seq = 2
     info = request.POST
-    info_modify(mem_seq,info)
+    info_modify(mem_seq, info)
     return redirect('mypage:myinfo')
 
 def my_post(request):

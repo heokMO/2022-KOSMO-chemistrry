@@ -2,10 +2,9 @@
     <table>
         {% for hang in reply_detail %}
         <tr>
-            <td><input id="content" value="{{hang.0}}"></td>
+            <td><input id="reply_content" value="{{hang.0}}" readonly></td>
             <td>{{hang.1}}</td>
             <td>{{hang.2}}</td>
-            <td><input type="button" id="update" value="수정"></td>
             <td><input type="button" id="delete" value="삭제" onclick="location.href='{% url 'reply:delete_reply' reply_seq=hang.3 post_seq=post_seq%}'"></td>
         </tr>
         {% endfor %}
@@ -15,15 +14,4 @@
         <textarea name="reply_comment" id="reply_comment" rows="5" style="resize:none;width:100%"></textarea>
         <input type="submit" value="댓글쓰기" style="text-align:right">
     </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        window.onload = function(){
-            $("#content").attr('readonly', true);
-        }
-        $(function(){
-            $("#update").click(function(){
-
-            });
-        });
-    </script>
 </div>

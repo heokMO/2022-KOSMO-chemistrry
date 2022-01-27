@@ -25,5 +25,6 @@ urlpatterns = [
     path('help/', include('help.urls')),
     path('post/', include('post.urls')),
     path('reply/', include('reply.urls')),
+    path('mypage/', include('mypage.urls'))
 ]
 
