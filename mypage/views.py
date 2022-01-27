@@ -16,9 +16,13 @@ def info_update(request):
     info_modify(mem_seq, info)
     return redirect('mypage:myinfo')
 
-def my_post(request):
-    return render(request, 'mypage/mypost.html')
+def mypost(request):
+    mem_seq = 1
+    mypage_list = post_list(mem_seq)
+    return render(request,'mypage/mypost.html', {'mypage_list': mypage_list})
 
 
-def my_reply(request):
-    return render(request, 'mypage/myreply.html')
+def myreply(request):
+    mem_seq = 1
+    mypage_list = myreply_inpost_list(mem_seq)
+    return render(request,'mypage/myreply.html', {'mypage_list': mypage_list})
