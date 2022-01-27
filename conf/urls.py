@@ -27,4 +27,5 @@ urlpatterns = [
     path('notice/', include('notice.urls')),
     path('help/', include('help.urls')),
     path('post/', include('post.urls')),
+    path('reply/', include('reply.urls')),
 ]

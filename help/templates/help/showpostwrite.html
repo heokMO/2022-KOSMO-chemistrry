@@ -8,7 +8,7 @@
         {% include 'navi.html'%}
         <div id="contents">
             <h1>체리야 도와줘 글쓰기 창입니다.</h1>
-            <form method="post" name="form1" id="form1" action="postinsert" enctype="multipart/form-data">
+            <form method="post" name="form1" id="form1" action="postinsert">
                 {% csrf_token %}
                 <fieldset>
                     <legend>체리야 도와줘</legend>
@@ -22,7 +22,6 @@
                     <p>작성내용 :</p>
                     <label for="content"></label>
                     <textarea name="content" id="content" cols="30" rows="10" placeholder=""></textarea>
-
                     <p>
                         <input type="submit" id="wrtBtn" value="등록">
                         <input type="button" value="목록" id="listBtn">

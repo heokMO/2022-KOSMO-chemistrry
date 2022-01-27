@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from help.models import help_list, help_insert, help_detail, help_update, help_delete, show_post_modify
+from reply.models import reply_list, reply_cnt
 
 
 def show_post_list(request):
@@ -25,9 +26,9 @@ def post_insert(request):
 
 def show_post_detail(request,post_seq):
     post_detail = help_detail(post_seq)
-    reply_detail = [('알겠습니다.', 'dada', '22/01/23 20:21:00,', 0),
-                    ('저는 아닙니다.', 'jaejae', '22/01/23 20:22:00,', 0)]
-    return render(request,'help/showpostdetail.html',{'post_detail':post_detail,'post_seq':post_seq,'reply_detail':reply_detail})
+    reply_detail = reply_list(post_seq)
+    reply_count = reply_cnt(post_seq)
+    return render(request, 'help/showpostdetail.html', {'post_detail':post_detail, 'post_seq':post_seq, 'reply_detail':reply_detail, 'reply_count':reply_count})
 
 
 def show_post_update(request,post_seq):
@@ -37,7 +38,7 @@ def show_post_update(request,post_seq):
 
 
 def post_update(request,post_seq):
-    info = [request.POST.get('title'),request.POST.get('content'),post_seq]
+    info = [request.POST.get('title'), request.POST.get('content'), post_seq]
     help_update(info)
     return redirect('help:showpostdetail', post_seq=post_seq)
 

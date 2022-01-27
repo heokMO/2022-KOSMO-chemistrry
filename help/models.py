@@ -6,7 +6,7 @@ from conf.settings import database
 def help_list():
     conn = ora.connect(database)
     cursor = conn.cursor()
-    sql = "select p.post_seq, p.title, m.nickname, p.written_time, p.post_content, p.view_count from post p, mem m where m.mem_seq = p.mem_seq and board_type = '체리야도와줘' order by post_seq desc"
+    sql = "select p.post_seq, p.title, m.nickname, p.written_time, p.post_content, p.view_count from post p, mem m where m.mem_seq = p.mem_seq and board_type = '체리야도와줘' and p.univ = '국민대학교' order by post_seq desc"
     cursor.execute(sql)
     result = cursor.fetchall()
     cursor.close()

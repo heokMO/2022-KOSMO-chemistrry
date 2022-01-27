@@ -12,7 +12,7 @@
     <body>
         {% include 'navi.html'%}
         <h1>체리야 도와줘 상세페이지</h1>
-        <form method="post" name="form1" id="form1" action="postinsert" enctype="multipart/form-data">
+        <form method="post" name="form1" id="form1" action="postinsert">
             {% csrf_token %}
             <fieldset>
                 <div id="title_area">
@@ -41,7 +41,7 @@
                         조회수 :<input type="text" value="{{post_detail.4}}" id="likeCnt" style="text-align:right;width:30px;" >
                     </div>
                 </p>
-                {% include 'reply.html'%}
+
                 <div style="text-align:right">
                     <input type="hidden" name="post_seq" id="post_seq" value="{{post_seq}}">
                     <input type="button" value="목록" id="listBtn">
@@ -50,6 +50,7 @@
                 </div>
             </fieldset>
         </form>
+        {% include 'reply.html'%}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             $(function(){
@@ -63,6 +64,13 @@
 
                $('#deleteBtn').click(function(){
                     location = "{% url 'help:postdelete' post_seq=post_seq%}";
+                });
+            });
+        </script>
+        <script>
+            $(function(){
+                $('#replyWrtBtn').click(function(){
+                    location = '{% url 'reply:replyinsert' post_seq=post_seq%}';
                 });
             });
         </script>
