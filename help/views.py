@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from help.models import Help
+from reply.models import Reply
 
 
 def show_post_write(request):
@@ -19,9 +20,7 @@ def show_post_list(request):
 
 def show_post_detail(request, post_seq):
     post_info = Help().post_detail(post_seq)
-    reply_detail = [('알겠습니다.', 'dada', '22/01/23 20:21:00,', 0),
-                    ('저는 아닙니다.', 'jaejae', '22/01/23 20:22:00,', 0)]
-
+    reply_detail = Reply().show_reply_list(post_seq)
     return render(request, 'help/showpostdetail.html', {'post_seq': post_seq, 'post_detail': post_info, 'reply_detail': reply_detail})
 
 

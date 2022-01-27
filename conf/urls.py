@@ -16,8 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-import home
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
@@ -26,4 +24,6 @@ urlpatterns = [
     path('notice/', include('notice.urls')),
     path('help/', include('help.urls')),
     path('post/', include('post.urls')),
+    path('reply/', include('reply.urls')),
 ]
+
