@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chemistrry : MyPage</title>
+</head>
+<body>
+    {% include 'navi.html' %}
+    <a href="{% url 'mypage:myinfo' %}">개인 정보</a>
+    <a href="{% url 'mypage:mypost' %}">내가 쓴 글/댓글</a>
+</body>
+</html>
