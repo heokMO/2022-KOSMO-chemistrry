@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chemistrry: notice</title>
+        {% include 'navi.html'%}
+        <h1 style="text-align:center">My page</h1>
+        <style>
+            table {
+                margin-right:auto;
+                margin-left:auto;
+            }
+        </style>
+            <a href="{% url 'mypage:myinfo' %}">내정보</a>
+            <a href="{% url 'mypage:mypost' %}">내가쓴글/댓글</a>
+    </head>
+<body>
+
+</body>
+</html>

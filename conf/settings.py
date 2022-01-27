@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'help',
     'post',
     'reply',
+    'mypage'
 ]
 
 MIDDLEWARE = [
@@ -129,4 +131,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-orcle_connect_config = 'chemistrry/cherry@localhost:1521/xe'
+
+database = 'chemistrry/cherry@192.168.0.9/xe'

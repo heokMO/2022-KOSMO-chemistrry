@@ -2,12 +2,12 @@ from post.models import Post
 
 import cx_Oracle as ora
 
-from conf.settings import orcle_connect_config
+from conf.settings import database
 
 
 class Help(Post):
     def post_list(self):
-        conn = ora.connect(orcle_connect_config)
+        conn = ora.connect(database)
         cursor = conn.cursor()
         sql = """
             select p.post_seq, p.title, p.post_content, p.written_time, m.nickname, p.view_count 
