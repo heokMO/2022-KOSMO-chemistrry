@@ -7,6 +7,7 @@
     <body>
         {% include 'navi.html'%}
         <h1>체리야 도와줘 수정 페이지</h1>
+
         <form method="post" name="form" id="form" action="{% url 'help:postupdate' post_seq=post_seq %}">
             {% csrf_token %}
             <fieldset>
@@ -40,6 +41,7 @@
             $(function(){
                 $('#listBtn').click(function(){
                     location = "{% url 'help:showpostlist' %}";
+                                    //help앱의 showpostlist라는 이름을 가진 애의 url로 들어가라 그래서 url로 들어가면
                 });
             });
         </script>

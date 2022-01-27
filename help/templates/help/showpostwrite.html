@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+    <!-- 글쓰기 창 페이지 -->
         <title>Chemistrry : help</title>
     </head>
     <body>
@@ -9,20 +10,22 @@
         <div id="contents">
             <h1>체리야 도와줘 글쓰기 창입니다.</h1>
             <form method="post" action="postinsert">
+                <!-- post방식으로 액션을 postinsert라는 이름으로 html을 보낸다  urls.py에서 확인가능-->
                 {% csrf_token %}
+                    <!--사이트간 요청 위조를 방지하기 위해 달아준다?-->
+                    <!-- 로그인된 사용자 계정이 아닌 다른 계정이 url 주소를 입력하고 들어가지면 안되니
+                    csrf_token를 달아준다. 가지고 있지 않으면 해킹으로 간주된다.-->
                 <fieldset>
                     <legend>체리야 도와줘</legend>
-
                     <p>
                     <label for="title">
-                            제목 :
+                        제목 :
                         </label>
                         <input type="text" name="title" id="title" >
                     </p>
-                    <p>작성내용 :</p>
+                    <p>작성내용: </p>
                     <label for="post_content"></label>
                     <textarea name="post_content" id="post_content" cols="30" rows="10" placeholder=""></textarea>
-
                     <p>
                         <input type="submit" id="wrtBtn" value="등록">
                         <input type="button" value="목록" id="listBtn">

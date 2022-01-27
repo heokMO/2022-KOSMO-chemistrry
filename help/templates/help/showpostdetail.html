@@ -10,8 +10,9 @@
         </style>
     </head>
     <body>
+<!-- help 상세페이지  -->
         {% include 'navi.html'%}
-        <h1>체리야 도와줘 상세페이지</h1>
+        <h1> 체리야 도와줘 상세페이지 </h1>
         <form method="post" name="form1" id="form1" action="postinsert" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset>
@@ -35,7 +36,6 @@
                 <p>작성내용 :</p>
                 <label for="content"></label>
                 <textarea name="content" id="content" cols="30" rows="10" style="resize:none;width:100%" readonly>{{post_detail.2}}</textarea>
-
                 <div style="text-align:right">
                     <input type="button" value="목록" id="listBtn">
                     <input type="button" value="수정" id="updateBtn">
@@ -54,6 +54,8 @@
 
                 $('#updateBtn').click(function(){
                     location = "{% url 'help:showpostupdate' post_seq=post_seq%}";
+                   // 앱이름이 help의 showpostupdate 라는 이름을 가진 애의 url로 찾아 들어가는데
+                   // post_seq는 정수형인데 예를들어 3,4번 가지고 있는 애인데 Urls로 가자
                 });
 
                $('#deleteBtn').click(function(){
