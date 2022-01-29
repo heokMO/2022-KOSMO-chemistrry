@@ -7,6 +7,6 @@ app_name = 'mypage'
 urlpatterns =[
     path('myinfo', views.my_info, name='myinfo'),
     path('infoupdate', views.info_update, name='infoupdate'),
-    path('mypost', views.my_post, name='mypost'),
-    path('myreply', views.my_reply, name='myreply'),
+    path('my_post', views.my_post, name='my_post'),
+    path('my_reply', views.my_reply, name='my_reply'),
 ]

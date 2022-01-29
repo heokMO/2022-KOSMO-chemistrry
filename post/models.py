@@ -70,3 +70,15 @@ class Post(models.Model):
         conn.commit()
         conn.close()
 
+
+    def get_board_type(self, post_seq):
+        conn = ora.connect(oracle_connect_config)
+        cursor = conn.cursor()
+        sql = "select board_type from post where post_seq = {}".format(post_seq)
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        board_list = {'공지사항': 'notice', '체리야도와줘': 'help'}
+        return board_list[result[0]]
+

@@ -12,10 +12,10 @@
             }
         </style>
             <a href="{% url 'mypage:myinfo' %}">내정보</a>
-            <a href="{% url 'mypage:mypost' %}">내가쓴글/댓글</a>
+            <a href="{% url 'mypage:my_post' %}">내가쓴글/댓글</a>
             <h1>My Reply</h1>
-            <a href="{% url 'mypage:mypost' %}">내가쓴 글</a>
-            <a href="{% url 'mypage:myreply' %}">내가쓴 댓글</a>
+            <a href="{% url 'mypage:my_post' %}">내가쓴 글</a>
+            <a href="{% url 'mypage:my_reply' %}">내가쓴 댓글</a>
     </head>
 <body>
                 <form method="post" action=""> <!-- action을 비워두면 자기 자신한테 간다.-->
