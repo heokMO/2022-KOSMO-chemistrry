@@ -9,12 +9,12 @@ def show_post_write(request):
 
 
 def post_write(request):
-    Help().post_insert(request.POST)
+    Help().post_insert(request.session['mem_seq'], request.POST)
     return redirect('help:showpostlist')
 
 
 def show_post_list(request):
-    post_list = Help().post_list()
+    post_list = Help().post_list(request.session['mem_seq'])
     return render(request, 'help/showpostlist.html', {'post_list': post_list})
 
 

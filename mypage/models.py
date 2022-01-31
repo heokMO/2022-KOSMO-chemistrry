@@ -12,6 +12,9 @@ class Mypage(models.Model):
               """
         cursor.execute(sql, mem_seq=mem_seq)
         result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result
 
 
     def post_list(self, mem_seq):
@@ -22,7 +25,7 @@ class Mypage(models.Model):
             from post p, mem m 
             where m.mem_seq = p.mem_seq and m.mem_seq =:mem_seq
         """
-        cursor.execute(sql, mem_seq = mem_seq)
+        cursor.execute(sql, mem_seq=mem_seq)
         result = cursor.fetchall()
         cursor.close()
         conn.close()
@@ -33,7 +36,9 @@ class Mypage(models.Model):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
         sql = """
-               update mem set acc_pwd = '{}', nickname = '{}', email= '{}', tel = '{}', univ = '{}', std_id = {}, domi_dong = '{}', room_num = {}  where mem_seq = {}
+               update mem set 
+               acc_pwd = '{}', nickname = '{}', email= '{}', tel = '{}', univ = '{}', std_id = {}, domi_dong = '{}', room_num = {}
+               where mem_seq = {}
                """.format(info['acc_pwd'], info['nickname'], info['email'], info['tel'], info['univ'], info['std_id'], info['domi_dong'], info['room_num'], mem_seq)
         cursor.execute(sql)
         cursor.close()

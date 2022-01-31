@@ -11,12 +11,12 @@ def show_post_write(request):
 
 
 def post_write(request):
-    Notice().post_insert(request.POST)
+    Notice().post_insert(request.session['mem_seq'], request.POST)
     return redirect('notice:showpostlist')
 
 
 def show_post_list(request):
-    notice_list = Notice().post_list()
+    notice_list = Notice().post_list(request.session['mem_seq'])
     return render(request, 'notice/showpostlist.html', {'notice_list': notice_list})
 
 

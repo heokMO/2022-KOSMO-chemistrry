@@ -38,9 +38,9 @@
 
                                 <td>{{hang.0}}</td>
                                 {% if hang.0 == '공지사항' %}
-                                <td><a href="{% url 'hang.0:showpostdetail' post_seq=hang.1%}">{{hang.1}}</a></td>
+                                <td><a href="{% url 'post:show_post_detail' post_seq=hang.1%}">{{hang.1}}</a></td>
                                 {% else %}
-                                <td><a href="{% url 'hang.0:showpostdetail' post_seq=hang.1%}">{{hang.1}}</a></td>
+                                <td><a href="{% url 'post:show_post_detail' post_seq=hang.1%}">{{hang.1}}</a></td>
                                 {% endif %}
                                 <td>{{hang.2}}</td>
                                 <td>{{hang.3}}</td>

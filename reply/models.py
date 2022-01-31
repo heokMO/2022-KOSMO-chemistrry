@@ -6,15 +6,14 @@ from conf.settings import oracle_connect_config
 
 
 class Reply(models.Model):
-    def write_reply(self, reply_comment, post_seq):
+    def write_reply(self, reply_comment, mem_seq, post_seq):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
         sql = """
             insert into reply 
             (reply_seq, post_seq, mem_seq, reply_comment) 
-            VALUES(REPLY_SEQ.nextval, {post_seq}, 4, '{reply_comment}')
-        """.format(reply_comment=reply_comment, post_seq=post_seq)
-        #TODO: member connect
+            VALUES(REPLY_SEQ.nextval, {post_seq}, {mem_seq}, '{reply_comment}')
+        """.format(reply_comment=reply_comment, mem_seq=mem_seq, post_seq=post_seq)
         cursor.execute(sql)
         cursor.close()
         conn.commit()

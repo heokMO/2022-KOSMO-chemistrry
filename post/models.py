@@ -3,14 +3,16 @@ from django.db import models
 import cx_Oracle as ora
 
 from conf.settings import oracle_connect_config
+from member.models import Member
 
 
 class Post(models.Model):
-    def post_insert(self, board_type, info):
+    def post_insert(self, board_type, mem_seq, info):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
+        univ = Member.get_univ(mem_seq)
         sql = "insert into post values(post_seq.nextval, '{}', '{}', '{}', {}, '{}', sysdate, 0)".format(
-            board_type, "국민대학교", info['title'], 1, info['post_content']) #univ, mem_seq
+            board_type, univ, info['title'], mem_seq, info['post_content'])
         cursor.execute(sql)
         cursor.close()
         conn.commit()
@@ -26,7 +28,6 @@ class Post(models.Model):
         where m.mem_seq = p.mem_seq
         and post_seq = {}
         """.format(post_seq)
-
         cursor.execute(sql)
         result = cursor.fetchone()
         cursor.close()
@@ -54,7 +55,8 @@ class Post(models.Model):
     def post_update(self, post_seq, info):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
-        sql = "update post set title = '{}', post_content = '{}' where post_seq = {}".format(info['title'], info['content'], post_seq)
+        sql = "update post set title = '{}', post_content = '{}' where post_seq = {}".format(
+            info['title'], info['content'], post_seq)
         cursor.execute(sql)
         cursor.close()
         conn.commit()
@@ -81,4 +83,9 @@ class Post(models.Model):
         conn.close()
         board_list = {'공지사항': 'notice', '체리야도와줘': 'help'}
         return board_list[result[0]]
+
+    def get_url(self, post_seq):
+        dynamic_url = '{}:showpostdetail'.format(Post().get_board_type(post_seq))
+        return dynamic_url
+
 
