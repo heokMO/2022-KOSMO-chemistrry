@@ -5,6 +5,10 @@ from django.shortcuts import render
 def login(request):
     return render(request, "home/login.html")
 
+def logout(request):
+    del request.session['mem_seq']
+    return render(request, "home/login.html")
+
 
 def home(request):
     return render(request, 'home/home.html')
