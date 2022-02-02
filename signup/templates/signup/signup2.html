@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lnag="ko">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <title> Chemistrry : signup </title>
+        <link rel="stylesheet" href="{% static 'css/new_main.css' %}">
+
+    </head>
+    <body>
+        <!-- header -->
+        <div id="header">
+            <a href="{% url 'home:login' %}" target="_blank" title="MainPage"><img src="{% static 'images/Main_Cherry.jpg' %}" width="150"></a>
+        </div>
+
+
+        <!-- wrapper -->
+        <div id="wrapper">
+            <form method="post" action="{% url 'signup:last_signup' mem_seq=mem_seq%}">
+                {% csrf_token %}
+                <!-- content-->
+                <div id="content">
+
+                    <!-- NICK -->
+                    <div>
+                        <h3 class="join_title">
+                            <label for="nick">닉네임</label>
+                        </h3>
+                        <span class="box int_id">
+                            <input type="text" name="nick" id="nick" class="int" maxlength="20">
+                        </span>
+                        <span class="error_next_box"></span>
+                    </div>
+
+                    <!-- Univ -->
+                    <div>
+                        <h3 class="join_title"><label for="univ">대학</label></h3>
+                        <span class="box gender_code">
+                            <select name="univ" id="univ" class="sel">
+                                <option>대학</option>
+                                {% for univ in univ_list %}
+                                <option value="{{univ.0}}">{{univ.0}}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                        <span class="error_next_box">필수 정보입니다.</span>
+                    </div>
+
+                    <!-- 기숙사명 -->
+                    <div>
+                        <h3 class="join_title">
+                            <label for="dormitory ">기숙사명</label>
+                        </h3>
+                        <span class="box int_id">
+                            <input type="text" name="dormitory" id="dormitory" class="int" maxlength="20">
+                        </span>
+                        <span class="error_next_box"></span>
+                    </div>
+                    <!-- 기숙사 호수 -->
+                    <div>
+                        <h3 class="join_title">
+                            <label for="room_num">기숙사 호수</label>
+                        </h3>
+                        <span class="box int_id">
+                            <input type="number" name="room_num" id="room_num" class="int" maxlength="20">
+                        </span>
+                        <span class="error_next_box"></span>
+                    </div>
+
+
+                    <!-- 학번 -->
+                    <div>
+                        <h3 class="join_title"><label for="std_id">학번</label></h3>
+                        <span class="box int_mobile">
+                            <input type="number" name="std_id" id="std_id" class="int" maxlength="16">
+                        </span>
+                        <span class="error_next_box"></span>
+                    </div>
+
+
+                    <!-- JOIN BTN-->
+                    <div class="btn_area">
+                        <button type="submit" id="btnJoin">
+                            <span>가입하기</span>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- content-->
+            </form>
+        </div>
+        <!-- wrapper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

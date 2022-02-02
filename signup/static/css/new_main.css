@@ -81,15 +81,6 @@ input {
     padding-right: 40px;
 }
 
-.step_url {
-    /*@naver.com*/
-    position: absolute;
-    top: 16px;
-    right: 13px;
-    font-size: 15px;
-    color: #8e8e8e;
-}
-
 .pswdImg {
     width: 18px;
     height: 20px;
