@@ -5,7 +5,9 @@
             <td><input id="reply_content" value="{{hang.0}}" readonly></td>
             <td>{{hang.1}}</td>
             <td>{{hang.2}}</td>
-            <td><input type="button" id="delete" value="삭제" onclick="location.href='{% url 'reply:delete_reply' reply_seq=hang.3 post_seq=post_seq%}'"></td>
+            {% if hang.4 == request.session.mem_seq %}
+                <td><input type="button" id="delete" value="삭제" onclick="location.href='{% url 'reply:delete_reply' reply_seq=hang.3 post_seq=post_seq%}'"></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

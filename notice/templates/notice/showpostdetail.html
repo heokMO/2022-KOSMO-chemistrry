@@ -37,8 +37,10 @@
 
                 <div style="text-align:right">
                     <input type="button" value="목록" id="listBtn">
-                    <input type="button" value="수정" id="updateBtn">
-                    <input type="button" value="삭제" id="deleteBtn">
+                    {% if post_detail.5 == request.session.mem_seq %}
+                        <input type="button" value="수정" id="updateBtn">
+                        <input type="button" value="삭제" id="deleteBtn">
+                    {% endif %}
                 </div>
                 <!--TODO: view_count-->
             </fieldset>

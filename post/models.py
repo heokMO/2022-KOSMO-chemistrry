@@ -24,7 +24,7 @@ class Post(models.Model):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
         sql = """
-        select p.title, m.nickname,  p.post_content, p.written_time, p.view_count
+        select p.title, m.nickname, p.post_content, p.written_time, p.view_count, p.mem_seq
         from post p, mem m
         where m.mem_seq = p.mem_seq
         and post_seq = {}
