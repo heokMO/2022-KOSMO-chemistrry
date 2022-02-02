@@ -24,7 +24,7 @@ class Reply(models.Model):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
         sql = """
-            select r.reply_comment, m.nickname, r.written_time, r.reply_seq
+            select r.reply_comment, m.nickname, r.written_time, r.reply_seq, r.mem_seq
             from reply r, mem m
             where r.post_seq = {post_seq}
             and m.mem_seq = r.mem_seq

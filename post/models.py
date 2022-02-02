@@ -10,7 +10,7 @@ class Post(models.Model):
     def post_insert(self, board_type, mem_seq, info):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
-        univ = Member.get_univ(mem_seq)
+        univ = Member().get_univ(mem_seq)
         sql = "insert into post values(post_seq.nextval, '{}', '{}', '{}', {}, '{}', sysdate, 0)".format(
             board_type, univ, info['title'], mem_seq, info['post_content'])
         cursor.execute(sql)
@@ -23,7 +23,7 @@ class Post(models.Model):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
         sql = """
-        select p.title, m.nickname,  p.post_content, p.written_time, p.view_count
+        select p.title, m.nickname,  p.post_content, p.written_time, p.view_count, p.mem_seq
         from post p, mem m
         where m.mem_seq = p.mem_seq
         and post_seq = {}
