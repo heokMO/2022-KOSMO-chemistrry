@@ -18,6 +18,7 @@ class Help(Post):
             where m.mem_seq = p.mem_seq 
             and board_type = '체리야도와줘'
             and p.univ ='{}'
+            order by p.post_seq desc
         """.format(univ)
         cursor.execute(sql)
         result = cursor.fetchall()

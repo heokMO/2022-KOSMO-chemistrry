@@ -10,7 +10,8 @@ class Post(models.Model):
     def post_insert(self, board_type, mem_seq, info):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
-        univ = Member.get_univ(mem_seq)
+        mem = Member()
+        univ = mem.get_univ(mem_seq)
         sql = "insert into post values(post_seq.nextval, '{}', '{}', '{}', {}, '{}', sysdate, 0)".format(
             board_type, univ, info['title'], mem_seq, info['post_content'])
         cursor.execute(sql)

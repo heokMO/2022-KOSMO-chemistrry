@@ -28,6 +28,7 @@ class Reply(models.Model):
             from reply r, mem m
             where r.post_seq = {post_seq}
             and m.mem_seq = r.mem_seq
+            order by r.written_time
         """.format(post_seq=post_seq)
         cursor.execute(sql)
         result = cursor.fetchall()
