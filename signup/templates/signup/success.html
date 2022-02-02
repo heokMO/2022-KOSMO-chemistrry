@@ -8,11 +8,20 @@
 <body>
 <div id="content">
     <div style="width:400px; margin:auto;">
-        <h2> 회원 가입 예제 </h2>
+        <h2> 회원 가입 </h2>
         <p style="font-size:20px">
             {{user_name}} 님 가입을 축하합니다.
         </p>
     </div>
 </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+            setTimeout(function(){
+                location = "{% url 'home:login'%}"
+            }, 5000)
+        });
+    </script>
 </body>
+
 </html>

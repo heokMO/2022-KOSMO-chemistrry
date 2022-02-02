@@ -20,8 +20,7 @@ class Signup(models.Model):
         result = cursor.fetchone()
         cursor.close()
         conn.close()
-        print(result[0])
-        return result[0]
+        return result[0] - 1
 
     def signup2(self, mem_seq, mem_info):
         conn = ora.connect(oracle_connect_config)
