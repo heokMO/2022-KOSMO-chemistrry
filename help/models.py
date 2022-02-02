@@ -10,7 +10,6 @@ class Help(Post):
     def post_list(self, mem_seq):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
-        print(mem_seq)
         univ = Member().get_univ(mem_seq)
         sql = """
             select p.post_seq, p.title, p.post_content, p.written_time, m.nickname, p.view_count 
