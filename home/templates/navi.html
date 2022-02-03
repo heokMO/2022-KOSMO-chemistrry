@@ -1,14 +1,24 @@
-  <div style="text-align:right">
-      {{request.session.univ}}기숙사생 {{request.session.nick}}님 안녕하세요!
-      <button id= "logout" onclick="logout();"> logout </button><br>
-    <a href="{% url 'home:home'%}" title="홈으로 돌아가기">홈</a>
-    <a href="{% url 'mypage:myinfo'%}" title="마이페이지">마이페이지</a>
-    <a href="{% url 'notice:showpostlist'%}" title="공지사항">공지사항</a>
-    <a href="{% url 'help:showpostlist'%}"  title="체리야 도와줘">체리야 도와줘</a>
-  </div>
-  <script>
-      function logout(){
-        location = '{% url 'home:logout' %}'
-      }
-  </script>
+ {% load static %}
+  <link href="{% static 'assets/css/theme.css'%}" rel="stylesheet" />
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+            {{request.session.univ}}기숙사생 {{request.session.nick}}님 안녕하세요!
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{% url 'home:home'%}">홈</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'mypage:myinfo'%}">마이페이지</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'notice:showpostlist'%}">공지사항</a></li>
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'help:showpostlist'%}">체리야 도와줘</a></li>
+            </ul><a class="btn btn-primary order-1 order-lg-0" href="{% url 'home:logout'%}">logout</a>
+
+          </div>
+        </div>
+      </nav>
+
+        <script>
+          function logout(){
+            location = '{% url 'home:logout' %}'
+          }
+       </script>
 

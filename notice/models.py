@@ -10,7 +10,6 @@ class Notice(Post):
     def post_list(self, mem_seq):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()
-        print(mem_seq)
         univ = Member().get_univ(mem_seq)
         sql = """
             select p.post_seq, p.title, m.nickname, p.written_time, p.post_content, p.view_count 
