@@ -20,8 +20,11 @@ def member_insert(request):
 def login(request):
     user_id = request.POST['user_id']
     user_pwd = request.POST['user_pwd']
+    univ = Member().get_univ(Member().get_seq(user_id))
     if Member().login(user_id, user_pwd):
         request.session['mem_seq'] = Member().get_seq(user_id)
+        request.session['id'] = user_id
+        request.session['univ'] = univ
         return redirect('home:home')
     else:
         msg = "아이디 또는 비밀번호가 다릅니다."
