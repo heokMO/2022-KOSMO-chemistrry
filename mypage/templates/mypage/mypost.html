@@ -11,11 +11,13 @@
                 margin-left:auto;
             }
         </style>
-            <a href="{% url 'mypage:myinfo' %}">내정보</a>
-            <a href="{% url 'mypage:my_post' %}">내가쓴글/댓글</a>
+
+            <a style="color:black;" href="{% url 'mypage:myinfo' %}">내정보</a>
+            <a style="color:black;" href="{% url 'mypage:my_post' %}">내가쓴글/댓글</a>
             <h1 >My Post</h1>
-            <a href="{% url 'mypage:my_post' %}">내가쓴 글</a>
-            <a href="{% url 'mypage:my_reply' %}">내가쓴 댓글</a>
+            <a style="color:black;" href="{% url 'mypage:my_post' %}">내가쓴 글</a>
+            <a style="color:black;" href="{% url 'mypage:my_reply' %}">내가쓴 댓글</a>
+
     </head>
 <body>
                 <form method="post" action=""> <!-- action을 비워두면 자기 자신한테 간다.-->
@@ -37,7 +39,7 @@
                             <tr>
                                 <td>{{hang.0}}</td>
                                 <td>{{hang.1}}</td>
-                                <td><a href="{% url 'post:show_post_detail' post_seq=hang.1%}">{{hang.2}}</a></td>
+                                <td><a style="color:black;" href="{% url 'post:show_post_detail' post_seq=hang.1%}">{{hang.2}}</a></td>
                                 <td>{{hang.3}}</td>
                                 <td>{{hang.4}}</td>
                             </tr>

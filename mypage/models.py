@@ -17,6 +17,8 @@ class Mypage(models.Model):
         return result
 
 
+
+
     def post_list(self, mem_seq):
         conn = ora.connect(oracle_connect_config)
         cursor = conn.cursor()

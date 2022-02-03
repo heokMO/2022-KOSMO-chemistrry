@@ -32,7 +32,7 @@
                             {% for hang in notice_list %}
                             <tr>
                                 <td>{{hang.0}}</td>
-                                <td><a href="{% url 'notice:showpostdetail' post_seq=hang.0%}">{{hang.1}}</a></td>
+                                <td><a style="color:black;" href="{% url 'notice:showpostdetail' post_seq=hang.0%}">{{hang.1}}</a></td>
                                 <td>{{hang.2}}</td>
                                 <td>{{hang.3}}</td>
                             </tr>

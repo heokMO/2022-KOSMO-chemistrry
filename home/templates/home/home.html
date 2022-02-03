@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Chemistrry</title>
-    <h1> 메인 </h1>
 
-    {% include 'navi.html'%}
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 
-</body>
+        .image-box {
+            width:100%;
+            overflow:hidden;
+            margin:0 auto;
+        }
+
+        .image-thumbnail {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+    </style>
+
+  </head>
+  <body>
+      {% include 'navi.html'%}
+
+       {% load static %}
+
+      <div class="image-box">
+          <img class="image-thumbnail" src="{% static 'assets/img/giphy.gif'%}">
+      </div>
+
+  </body>
 </html>
+
