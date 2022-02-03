@@ -11,6 +11,9 @@
 
     <form method="post"  action="{% url 'member:login'%}" style="text-align:right">
         {% csrf_token %}
+        <div colspan="2" style="color:red; text-align:right">
+                        {{error}}
+        </div>
         <div >ID</div>
         <div>
             <input type="text" name="user_id" id="user_id" placeholder="ID"> <!--해당 Text상자에 기본으로 띄워놓을 문구를 placeholder라고 한다. -->

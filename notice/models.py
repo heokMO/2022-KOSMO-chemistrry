@@ -18,6 +18,7 @@ class Notice(Post):
             where m.mem_seq = p.mem_seq 
             and p.board_type = '공지사항' 
             and p.univ ='{}'
+            order by p.post_seq desc
         """.format(univ)
         cursor.execute(sql)
         result = cursor.fetchall()
