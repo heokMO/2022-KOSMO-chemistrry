@@ -67,3 +67,14 @@ class Member(models.Model):
         conn.close()
         return univ[0]
 
+
+    def get_nick(self, mem_seq):
+        conn = ora.connect(oracle_connect_config)
+        cursor = conn.cursor()
+        sql = "select NICKNAME from MEM where MEM_SEQ = '{}'".format(mem_seq)
+        cursor.execute(sql)
+        nick = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return nick[0]
+

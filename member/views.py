@@ -21,7 +21,10 @@ def login(request):
     user_id = request.POST['user_id']
     user_pwd = request.POST['user_pwd']
     if Member().login(user_id, user_pwd):
-        request.session['mem_seq'] = Member().get_seq(user_id)
+        mem_seq = Member().get_seq(user_id)
+        request.session['mem_seq'] = mem_seq
+        request.session['nick'] = Member().get_nick(mem_seq)
+        request.session['univ'] = Member().get_univ(mem_seq)
         return redirect('home:home')
     else:
         msg = "아이디 또는 비밀번호가 다릅니다."
