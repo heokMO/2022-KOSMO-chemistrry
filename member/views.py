@@ -24,4 +24,5 @@ def login(request):
         request.session['mem_seq'] = Member().get_seq(user_id)
         return redirect('home:home')
     else:
-        return redirect('home:login')
+        msg = "아이디 또는 비밀번호가 다릅니다."
+        return render(request, 'home/login.html', {'error':msg})
