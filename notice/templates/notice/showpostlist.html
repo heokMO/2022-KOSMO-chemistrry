@@ -10,6 +10,13 @@
                 margin-right:auto;
                 margin-left:auto;
             }
+
+            #paging {
+                text-decoration: none;
+                list-style: none;
+                margin-left: 3px;
+                clear:both;
+            }
         </style>
     </head>
 
@@ -40,11 +47,46 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th colspan="5" class="text-center"><!--TODO: notice pagenate--></th>
-                            </tr>
-                            <tr>
                                 <th colspan="5" class="text-center">
                                     <input type="hidden" name="cur_page" value="{{addr_list.number}}">
+<div class="row">
+  <div class="col-12">
+    <nav>
+      <ul id="paging">
+        {% if page > 1 %}
+        <li>
+        <a href="?page={{page}}">Previous</a> <!-- 어떤 경로던간에 뒤에 얻어온 다음 페이지의 번호를 page에 담아 보낸다.-->
+        </li>
+        {% else %} <!--다음페이지가 없다면 아무 링크도 걸지 않는다. -->
+        <li>Previous</li>
+        {% endif %}
+        <!-- page loop -->
+        {{page}}
+        {% for page_number in page_list %}
+        {% if page_number == page %}
+          <li>[{{page_number}}]</li>
+        {% else %}
+          <li>[<a href="?page={{page_number}}">{{page_number}}</a>]</li>
+        {% endif %}
+        {% endfor %}
+        <!-- next page -->
+        {% if page < tot_page %}
+          <li>
+            <a href="?page='{{page}}+1'">Next</a>
+          </li>
+        {% else %}
+          <li>
+            Next
+          </li>
+        {% endif %}
+        <li style="float:right">
+          CurrentPage: {{page}}
+          / Total Page : {{tot_page}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
                                     <input type="text" name="searchValue" id="searchValue">
                                     <input type="submit" value="search">
                                     <input type="button" style="float:right" value="전체 목록" id="addrListBtn" >

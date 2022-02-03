@@ -89,3 +89,12 @@ class Post(models.Model):
         return dynamic_url
 
 
+    def post_count(self, board_type, univ):
+        conn = ora.connect(oracle_connect_config)
+        cursor = conn.cursor()
+        sql = "select count(*) from post where board_type='{}' and univ='{}'".format(board_type, univ)
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0]

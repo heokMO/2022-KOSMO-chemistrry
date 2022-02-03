@@ -130,4 +130,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-oracle_connect_config = 'chemistrry/cherry@localhost:1521/orcl'
+oracle_connect_config = 'chemistrry/cherry@192.168.56.1:1521/xe'
