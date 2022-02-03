@@ -16,7 +16,7 @@
     <body>
         <div id="content" style="text-align:center">
             <div class="row1">
-                <form method="post" action=""> <!-- action을 비워두면 자기 자신한테 간다.-->
+                <form method="post" action="{% url 'notice:show_post_search' %}"> <!-- action을 비워두면 자기 자신한테 간다.-->
                     {% csrf_token %}
                     <table class="table table-striped" style="text-align:center">
                         <thead class="thead-dark">
@@ -44,7 +44,6 @@
                             </tr>
                             <tr>
                                 <th colspan="5" class="text-center">
-                                    <input type="hidden" name="cur_page" value="{{addr_list.number}}">
                                     <input type="text" name="searchValue" id="searchValue">
                                     <input type="submit" value="search">
                                     <input type="button" style="float:right" value="전체 목록" id="addrListBtn" >

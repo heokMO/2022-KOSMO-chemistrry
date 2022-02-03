@@ -12,4 +12,5 @@ urlpatterns =[
     path('showpostupdate/<int:post_seq>', views.show_post_update, name='showpostupdate'),
     path('postupdate<int:post_seq>', views.post_update, name='postupdate'),
     path('postdelete<int:post_seq>', views.post_delete, name='postdelete'),
+    path('show_post_search', views.show_post_search, name='show_post_search'),
 ]

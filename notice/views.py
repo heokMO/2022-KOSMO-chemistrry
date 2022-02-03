@@ -40,5 +40,9 @@ def post_delete(request, post_seq):
     Notice().post_delete(post_seq)
     return redirect('notice:showpostlist')
 
+def show_post_search(request):
+    notice_list = Notice().post_search(request.session['mem_seq'], request.POST['searchValue'])
+    return render(request, 'notice/showpostlist.html', {'notice_list': notice_list})
+
 
 
